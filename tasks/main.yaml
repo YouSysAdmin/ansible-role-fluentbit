@@ -1,0 +1,10 @@
+---
+- include: install.yaml
+
+- include: config.yaml
+
+- name: Ensure Fluent-Bit is started and enabled at boot.
+  service:
+    name: fluent-bit
+    state: started
+    enabled: true

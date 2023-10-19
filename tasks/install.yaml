@@ -1,0 +1,15 @@
+---
+- name: Add Fluent-Bit GPG key
+  shell: 'curl {{ fluentbit_key_url }} | gpg --dearmor > {{ fluentbit_key_local_path }}'
+
+- name: Add Fluent-Bit APT repository
+  apt_repository:
+    repo: '{{ fluentbit_apt_source }}'
+    state: present
+    filename: fluent-bit
+    update_cache: yes
+
+- name: Install Fluent-Bit package
+  apt:
+    name: fluent-bit
+    state: present

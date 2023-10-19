@@ -1,0 +1,31 @@
+---
+fluentbit_key_url: 'https://packages.fluentbit.io/fluentbit.key'
+fluentbit_key_local_path: '/usr/share/keyrings/fluentbit-keyring.gpg'
+fluentbit_repo_url: 'https://packages.fluentbit.io/ubuntu/{{ ansible_distribution_release }} {{ ansible_distribution_release }}'
+fluentbit_apt_source: 'deb [signed-by={{ fluentbit_key_local_path }}] {{ fluentbit_repo_url }} main'
+fluent_bit_config_dir: '/etc/fluent-bit'
+
+# Service
+fluentbit_flush_seconds: '5'
+fluentbit_daemon: false
+fluentbit_log_level: 'info'
+fluentbit_enable_metrics: false
+fluentbit_metrics_listen_ip: '0.0.0.0'
+fluentbit_metrics_listen_port: '2020'
+fluentbit_storage_metrics: true
+fluentbit_storage_path: '/tmp/storage'
+fluentbit_storage_sync_mode: 'normal'
+fluentbit_storage_checksum: false
+fluentbit_storage_backlog_mem_limit: '5M'
+
+# Additional parsers
+fluentbit_custom_parsers: [ ]
+
+# Inputs
+fluentbit_inputs: [ ]
+
+# Filters
+fluentbit_filters: [ ]
+
+# Outputs
+fluentbit_outputs: [ ]

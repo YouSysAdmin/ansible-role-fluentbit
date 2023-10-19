@@ -1,0 +1,26 @@
+---
+- name: Setup Fluent-Bit configuration file.
+  template:
+    src: 'config_tempate.j2'
+    dest: '{{ fluent_bit_config_dir }}/fluent-bit.conf'
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart fluent-bit
+
+- name: Setup Fluent-Bit additional parsers.
+  template:
+    src: 'additional_parsers.j2'
+    dest: '{{ fluent_bit_config_dir }}/additional-parsers.conf'
+    owner: root
+    group: root
+    mode: 0644
+  when: fluentbit_custom_parsers | length >0
+  notify: restart fluent-bit
+
+- name: Remove Fluent Bit additional parsers config file.
+  file:
+    path: '{{ fluent_bit_config_dir }}/additional-parsers.conf'
+    state: absent
+  when: fluentbit_custom_parsers | length <= 0
+  notify: restart fluent-bit
