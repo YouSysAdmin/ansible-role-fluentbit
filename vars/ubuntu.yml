@@ -1,0 +1,5 @@
+---
+fluentbit_key_url: 'https://packages.fluentbit.io/fluentbit.key'
+fluentbit_key_local_path: '/usr/share/keyrings/fluentbit-keyring.gpg'
+fluentbit_repo_url: 'https://packages.fluentbit.io/ubuntu/{{ ansible_distribution_release }} {{ ansible_distribution_release }}'
+fluentbit_apt_source: 'deb [signed-by={{ fluentbit_key_local_path }}] {{ fluentbit_repo_url }} main'

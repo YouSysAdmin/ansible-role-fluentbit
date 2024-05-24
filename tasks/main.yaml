@@ -1,4 +1,8 @@
 ---
+
+- name: Include version-specific variables for OS.
+  include_vars: "{{ ansible_os_family|lower }}.yml"
+
 - include: install.yaml
 
 - include: config.yaml
