@@ -3,9 +3,9 @@
 - name: Include version-specific variables for OS.
   include_vars: "{{ ansible_os_family|lower }}.yml"
 
-- include: install.yaml
+- import_tasks: install.yaml
 
-- include: config.yaml
+- import_tasks: config.yaml
 
 - name: Ensure Fluent-Bit is started and enabled at boot.
   service:
