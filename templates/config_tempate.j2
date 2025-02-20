@@ -22,7 +22,12 @@
     # - trace
     #
     # by default 'info' is set, that means it includes 'error' and 'warning'.
-    log_level    {{ fluentbit_log_level }}
+    log_level  {{ fluentbit_log_level }}
+
+    # Absolute path for an optional log file.
+    # By default all logs are redirected to the standard error interface (stderr).
+    # default: none
+    log_file  {{ fluentbit_log_file }}
 
     # Parsers File
     # ============

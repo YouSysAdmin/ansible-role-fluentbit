@@ -9,6 +9,7 @@ fluent_bit_config_dir: '/etc/fluent-bit'
 fluentbit_flush_seconds: '5'
 fluentbit_daemon: false
 fluentbit_log_level: 'info'
+fluentbit_log_file: 'none'
 fluentbit_enable_metrics: false
 fluentbit_metrics_listen_ip: '0.0.0.0'
 fluentbit_metrics_listen_port: '2020'
